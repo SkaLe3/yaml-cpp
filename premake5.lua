@@ -18,6 +18,9 @@ project "yaml-cpp"
         "include"
     }
 
+	filter "action:vs*"
+		buildoptions {"/w"}
+
 	filter "system:windows"
 		systemversion "latest"
 		cppdialect "C++20"
