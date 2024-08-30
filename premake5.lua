@@ -10,13 +10,19 @@ project "yaml-cpp"
 		"src/**.h",
         "src/**.cpp",
 
-        "include/**.h"
+		"include/**.h"
 	}
 
     includedirs
     {
-        "include"
+        "include",
+		"src"
     }
+
+	defines
+	{
+		"YAML_CPP_STATIC_DEFINE"
+	}
 
 	filter "action:vs*"
 		buildoptions {"/w"}
@@ -30,6 +36,21 @@ project "yaml-cpp"
 		runtime "Debug"
 		symbols "on"
 
-	filter "configurations:Release"
+	filter "configurations:Debug_Editor"
+		runtime "Debug"
+		symbols "on"
+
+	filter "configurations:Development"
 		runtime "Release"
 		optimize "on"
+		symbols "on"
+
+	filter "configurations:Development_Editor"
+		runtime "Release"
+		optimize "on"
+		symbols "on"
+
+	filter "configurations:Shipping"
+		runtime "Release"
+		optimize "on"
+		symbols "off"
