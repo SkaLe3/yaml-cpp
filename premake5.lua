@@ -2,6 +2,8 @@ project "yaml-cpp"
 	kind "StaticLib"
 	language "C++"
 
+	location ".\\"
+
     targetdir (tp_bin_out)
     objdir (tp_int_out)
 
